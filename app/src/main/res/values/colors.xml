@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ic_launcher_background">#1B2030</color>
+
+    <color name="bg">#F1F3F7</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="border">#D3D9E3</color>
+    <color name="track">#DDE2EA</color>
+    <color name="ink">#161A22</color>
+    <color name="ink_dim">#5D6575</color>
+    <!-- Amber is the sound that is still getting through. -->
+    <color name="awake">#A96F14</color>
+    <!-- Colour drains to this the moment the phone goes quiet. -->
+    <color name="quiet">#4B6B88</color>
+</resources>

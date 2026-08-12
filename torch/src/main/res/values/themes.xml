@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--
+        Fully transparent rather than android:windowNoDisplay. windowNoDisplay requires the
+        activity to have called finish() before onResume() returns, and this one is still waiting
+        on CameraManager.TorchCallback at that point — it crashes with "did not call finish() prior
+        to onResume() completing". A transparent window has no such rule and is equally invisible:
+        no background, no animation, no starting preview.
+    -->
+    <style name="TorchTheme" parent="@android:style/Theme.Translucent.NoTitleBar">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:windowDisablePreview">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+
+</resources>

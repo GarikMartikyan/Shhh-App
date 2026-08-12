@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg">#101319</color>
+    <color name="surface">#191D26</color>
+    <color name="border">#2C3240</color>
+    <color name="track">#232936</color>
+    <color name="ink">#E7EAF1</color>
+    <color name="ink_dim">#939BAC</color>
+    <color name="awake">#E2A949</color>
+    <color name="quiet">#7FA3C4</color>
+</resources>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Shhh</string>
+    <string name="diagnostics">Diagnostics</string>
+    <string name="sensitivity">Sensitivity</string>
+    <string name="today">Today</string>
+    <string name="notification">Notification</string>
+    <string name="notification_show">Show details</string>
+    <string name="notification_blurb">Android requires a notification while Shhh is watching, so it can’t be removed outright — but you can swipe it away, and turning this off strips it to nothing and delays it.</string>
+    <string name="notification_settings">Hide it completely…</string>
+    <string name="grant_dnd">Grant Do Not Disturb access</string>
+    <string name="grant_notif">Allow notifications</string>
+    <string name="battery_button">Battery settings — set to Unrestricted</string>
+    <string name="history_empty">Nothing yet today. Put the phone face down and it’ll show up here.</string>
+</resources>
