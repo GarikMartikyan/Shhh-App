@@ -1,30 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="250" height="56" viewBox="0 0 250 56" role="img" aria-label="Download app">
-  <!-- The launcher's own colours: R.color.ic_launcher_background behind the amber crescent. -->
-  <defs>
-    <linearGradient id="face" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#242C40"/>
-      <stop offset="1" stop-color="#141926"/>
-    </linearGradient>
-  </defs>
-
-  <rect x="0.75" y="0.75" width="248.5" height="54.5" rx="15.25"
-        fill="url(#face)" stroke="#0C1018" stroke-width="1.5"/>
-  <!-- Top-edge highlight, so the face reads as lit from above rather than flat. -->
-  <path d="M16 1.5 H234 A14.5 14.5 0 0 1 248.5 16 V17 H1.5 V16 A14.5 14.5 0 0 1 16 1.5 Z"
-        fill="#FFFFFF" opacity="0.07"/>
-
+<svg xmlns="http://www.w3.org/2000/svg" width="198" height="48" viewBox="0 0 198 48" role="img" aria-label="Download app">
+  <!-- Flat navy: R.color.ic_launcher_background, with the icon's amber crescent. -->
+  <rect width="198" height="48" rx="24" fill="#1B2030"/>
   <!-- The launcher's crescent, R.drawable.ic_launcher_foreground. -->
-  <g transform="translate(22 16)" fill="#E2C88A">
-    <path d="M12,3C7.58,3 4,6.58 4,11c0,4.42 3.58,8 8,8c1.85,0 3.55,-0.63 4.9,-1.69c-4.02,-0.35 -7.18,-3.73 -7.18,-7.85c0,-2.06 0.79,-3.94 2.08,-5.35C12.79,3.04 12.4,3 12,3z"/>
-  </g>
-
-  <text x="56" y="34.5" fill="#EEF1F7" font-size="17" font-weight="600"
-        font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">Download app</text>
-
-  <g transform="translate(212 20)" stroke="#E2C88A" stroke-width="2"
-     stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.95">
-    <path d="M8 0 V10"/>
-    <path d="M3.5 6 L8 10.5 L12.5 6"/>
-    <path d="M1.5 15 H14.5"/>
+  <g transform="translate(17 17.0) scale(0.78)" fill="#E2C88A"><path d="M12,3C7.58,3 4,6.58 4,11c0,4.42 3.58,8 8,8c1.85,0 3.55,-0.63 4.9,-1.69c-4.02,-0.35 -7.18,-3.73 -7.18,-7.85c0,-2.06 0.79,-3.94 2.08,-5.35C12.79,3.04 12.4,3 12,3z"/></g>
+  <text x="44" y="29.6" fill="#F1F3F7" font-size="16" font-weight="600"
+        letter-spacing="0.1" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">Download app</text>
+  <g transform="translate(165 16.0)" stroke="#F1F3F7" stroke-width="1.85"
+     stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.9">
+    <path d="M8 1 V10.5"/>
+    <path d="M4 7 L8 11 L12 7"/>
+    <path d="M2 14.5 H14"/>
   </g>
 </svg>

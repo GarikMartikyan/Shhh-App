@@ -8,15 +8,16 @@ Put the phone face down on a table and it goes quiet. Pick it up and the sound c
       <source media="(prefers-color-scheme: dark)"
               srcset="https://raw.githubusercontent.com/GarikMartikyan/Shhh-App/main/.github/download-dark.svg">
       <img src="https://raw.githubusercontent.com/GarikMartikyan/Shhh-App/main/.github/download-light.svg"
-           alt="Download app" width="250" height="56">
+           alt="Download app" width="198" height="48">
     </picture>
   </a>
   <br>
-  <a href="https://github.com/GarikMartikyan/Shhh-App/releases/latest"><img
-     src="https://img.shields.io/github/v/release/GarikMartikyan/Shhh-App?style=flat-square&label=latest&labelColor=1B2030&color=A96F14"
-     alt="Latest release"></a>
-  <img src="https://img.shields.io/badge/Android-14%2B-1B2030?style=flat-square&labelColor=1B2030&color=4B6B88"
-       alt="Android 14 or newer">
+  <sub>
+    <a href="https://github.com/GarikMartikyan/Shhh-App/releases/latest"><img
+       src="https://img.shields.io/github/v/release/GarikMartikyan/Shhh-App?style=flat-square&label=&color=4B6B88"
+       alt="Latest release"></a>
+    &nbsp;Android 14 or newer
+  </sub>
 </p>
 
 This is Pixel's **Flip to Shhh** rebuilt for a Samsung phone, which does not ship it — One UI's
