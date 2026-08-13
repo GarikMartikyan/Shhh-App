@@ -18,7 +18,16 @@ enum class Sensitivity(
     val releaseGz: Float,
     /** Non-gravity acceleration, m/s^2, below which it counts as settled. */
     val stillMax: Float,
-    /** How long both conditions must hold before it silences. */
+    /**
+     * Degrees the phone may lean away from where it started before the hold restarts.
+     *
+     * A hand keeps the phone within [stillMax] easily -- holding something steady produces almost
+     * no linear acceleration -- but it cannot keep an *angle*. A wrist drifts a few degrees over a
+     * second or two; a table drifts a fifth of one. That difference is what separates "put down"
+     * from "held flat, face down".
+     */
+    val maxDriftDeg: Float,
+    /** How long all three conditions must hold before it silences. */
     val holdMs: Long,
     val blurb: String,
 ) {
@@ -27,6 +36,7 @@ enum class Sensitivity(
         engageGz = -9.5f,
         releaseGz = -7.5f,
         stillMax = 0.12f,
+        maxDriftDeg = 1.5f,
         holdMs = 2_000L,
         blurb = "Wants a properly flat, properly still surface. Fewest pocket false alarms, and the most likely to ignore a soft or sloped one.",
     ),
@@ -35,6 +45,7 @@ enum class Sensitivity(
         engageGz = -9.0f,
         releaseGz = -7.0f,
         stillMax = 0.25f,
+        maxDriftDeg = 2.5f,
         holdMs = 1_500L,
         blurb = "Tuned against the placements actually measured on this phone. Start here.",
     ),
@@ -43,6 +54,7 @@ enum class Sensitivity(
         engageGz = -8.3f,
         releaseGz = -6.3f,
         stillMax = 0.45f,
+        maxDriftDeg = 4f,
         holdMs = 1_000L,
         blurb = "Triggers on a slope, a cushion, or a quick set-down. Silences more readily, and is the most likely to fire in a pocket.",
     );

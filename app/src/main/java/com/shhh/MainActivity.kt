@@ -304,6 +304,7 @@ class MainActivity : Activity() {
             !prefs.enabled -> "Turn on to start watching."
             engaged -> "Silenced. Pick it up to stop."
             s == null -> "Starting up."
+            !s.steady -> "Still tilting — let go of it."
             s.heldMs > 0 -> "Almost — hold it there."
             s.faceDown && !s.still -> "Hold still."
             else -> "Put the phone face down on a flat surface."
@@ -324,6 +325,8 @@ class MainActivity : Activity() {
                     .append("   engage ≤ ").append(level.engageGz).append('\n')
                 append("motion     ").append(String.format(Locale.US, "%6.3f", s.motion))
                     .append("   still < ").append(level.stillMax).append('\n')
+                append("drift      ").append(String.format(Locale.US, "%6.2f", s.driftDeg))
+                    .append("°  steady < ").append(level.maxDriftDeg).append("°\n")
                 append("held       ").append(s.heldMs).append(" / ").append(s.holdTargetMs)
                     .append(" ms\n")
                 append("proximity  ").append(
