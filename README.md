@@ -2,6 +2,23 @@
 
 Put the phone face down on a table and it goes quiet. Pick it up and the sound comes back.
 
+<p align="center">
+  <a href="https://github.com/GarikMartikyan/Shhh-App/releases/latest/download/shhh.apk">
+    <picture>
+      <source media="(prefers-color-scheme: dark)"
+              srcset="https://raw.githubusercontent.com/GarikMartikyan/Shhh-App/main/.github/download-dark.svg">
+      <img src="https://raw.githubusercontent.com/GarikMartikyan/Shhh-App/main/.github/download-light.svg"
+           alt="Download app" width="250" height="56">
+    </picture>
+  </a>
+  <br>
+  <a href="https://github.com/GarikMartikyan/Shhh-App/releases/latest"><img
+     src="https://img.shields.io/github/v/release/GarikMartikyan/Shhh-App?style=flat-square&label=latest&labelColor=1B2030&color=A96F14"
+     alt="Latest release"></a>
+  <img src="https://img.shields.io/badge/Android-14%2B-1B2030?style=flat-square&labelColor=1B2030&color=4B6B88"
+       alt="Android 14 or newer">
+</p>
+
 This is Pixel's **Flip to Shhh** rebuilt for a Samsung phone, which does not ship it — One UI's
 Modes and Routines has no orientation or face-down condition, Good Lock's Routines+ adds only
 fingerprint, S Pen and button triggers, and "Mute with gestures" only silences a call or alarm that
@@ -23,15 +40,28 @@ essentially never both within a few degrees of horizontal and motionless for ove
 pair is the pocket guard. Release uses a separate, shallower threshold, so a phone that jiggles on
 the table does not chatter between states.
 
+Flat and still are not enough on their own, though, because a *hand* holding the phone face down
+passes both: gripping something steadily produces almost no linear acceleration. What a hand cannot
+do is hold an **angle**. So a third condition anchors the gravity direction when the countdown
+starts and restarts the countdown from the current angle whenever the phone leans further than the
+profile allows. A table wanders about a fifth of a degree; a wrist wanders several.
+
+That drift is measured as `atan2(|a × b|, a · b)` between the anchored and the current gravity
+vector. The magnitudes cancel, so accelerometer gain error cannot leak in; and unlike an `acos` of
+normalised dot products it keeps its precision at the one or two degrees this actually operates on,
+where `acos` has almost none. It also catches a lean in any direction rather than only a change in
+how flat the phone is, so a wrist rocking one way and back does not average itself out into looking
+motionless.
+
 The thresholds are not invented. Real placements measured on the device landed at gravity Z between
 −9.53 and −9.73 with motion between 0.002 and 0.072; Balanced keeps roughly 3× headroom over the
 worst of those while still tolerating an imperfect table.
 
-| Profile  | Face down at | Released past | Still below | Hold  |
-| -------- | ------------ | ------------- | ----------- | ----- |
-| Strict   | z ≤ −9.5     | z > −7.5      | 0.12        | 2.0 s |
-| Balanced | z ≤ −9.0     | z > −7.0      | 0.25        | 1.5 s |
-| Relaxed  | z ≤ −8.3     | z > −6.3      | 0.45        | 1.0 s |
+| Profile  | Face down at | Released past | Still below | Max drift | Hold  |
+| -------- | ------------ | ------------- | ----------- | --------- | ----- |
+| Strict   | z ≤ −9.5     | z > −7.5      | 0.12        | 1.5°      | 2.0 s |
+| Balanced | z ≤ −9.0     | z > −7.0      | 0.25        | 2.5°      | 1.5 s |
+| Relaxed  | z ≤ −8.3     | z > −6.3      | 0.45        | 4°        | 1.0 s |
 
 Balanced is the default. Strict rejects a surface that is not properly flat; Relaxed accepts a
 slope, a cushion or a quick set-down, and is the most likely to fire in a pocket.
@@ -64,7 +94,7 @@ short, self-timing-out partial wake lock only while a candidate placement is fin
 A single screen: a tilt gauge that fills as the hold completes, the on/off pill, the three
 sensitivity profiles, today's silences as a bar chart, and a collapsible diagnostics readout
 (service state, sensor name, whether it is a wake-up sensor, sample rate, live gravity Z / motion /
-held-ms against the current thresholds, and the raw proximity reading for the record).
+drift / held-ms against the current thresholds, and the raw proximity reading for the record).
 
 Android requires a notification for every foreground service, so it can never be absent. It can be
 unobtrusive: it is dismissible by swipe, and turning it off in the app strips it of text and defers
